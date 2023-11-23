@@ -1,11 +1,10 @@
-package ait.map.word;
+package ait.words.utils;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class Anagram {
     public static boolean isAnagram(String word, String part) {
-        // TODO Homework
         if (word == null || part == null || part.isEmpty() || part.length() > word.length()) {
             return false;
         }
