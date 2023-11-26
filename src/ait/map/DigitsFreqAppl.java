@@ -21,15 +21,17 @@ public class DigitsFreqAppl {
             Integer number = random.nextInt(Integer.MAX_VALUE);
             String[] digits = number.toString().split("");
             for (String string : digits) {
-                if (res.containsKey(string)) {
-                    res.put(string, res.get(string) + 1);
-                } else {
-                    res.put(string, 1);
-                }
+//                if (res.containsKey(string)) {
+//                    res.put(string, res.get(string) + 1);
+//                } else {
+//                    res.put(string, 1);
+//                }
+                res.put(string, res.getOrDefault(string, 0) + 1);
             }
         }
         List<Map.Entry<String, Integer>> list = new ArrayList<>(res.entrySet());
         list.sort((e1, e2) -> Integer.compare(e2.getValue(), e1.getValue()));
         list.forEach(e -> System.out.println(e));
+
     }
 }
