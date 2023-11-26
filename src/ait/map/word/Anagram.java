@@ -15,16 +15,15 @@ public class Anagram {
         for (int i = 0; i < word.length(); i++) {
             lettersOfWord.merge(word.charAt(i), 1, (a, b) -> a + b);
         }
-
+        Map<Character, Integer> lettersOfPart = new HashMap<>();
         for (int i = 0; i < part.length(); i++) {
-            lettersOfWord.merge(part.charAt(i), 1, (a, b) -> a - b);
+            lettersOfPart.merge(part.charAt(i), 1, (a, b) -> a + b);
         }
         for (int i = 0; i < part.length(); i++) {
-            if (lettersOfWord.get(part.charAt(i)) > lettersOfWord.getOrDefault(word.charAt(i), 0)) {
+            if (lettersOfPart.get(part.charAt(i)) > lettersOfWord.getOrDefault(part.charAt(i), 0)) {
                 return false;
             }
         }
-
         return true;
     }
 }
